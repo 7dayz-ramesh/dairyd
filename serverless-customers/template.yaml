@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: My first serverless application.
+
+Resources:
+
+  customers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: customers.handler
+      Runtime: nodejs6.10
+      Events:
+        Listcustomers:
+          Type: Api
+          Properties:
+            Path: /customers
+            Method: get
+        Createcustomer:
+          Type: Api
+          Properties:
+            Path: /customers
+            Method: post
+        customer:
+          Type: Api
+          Properties:
+            Path: /customers/{cust-id}
+            Method: any

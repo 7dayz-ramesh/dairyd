@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: My first serverless application.
+
+Resources:
+
+  subscriptions:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: subscriptions.handler
+      Runtime: nodejs6.10
+      Events:
+        ListCustomerSubscriptions:
+          Type: Api
+          Properties:
+            Path: /customers/{custId}/subscriptions
+            Method: get
+        CreateCustomerSubscriptions:
+          Type: Api
+          Properties:
+            Path: /customers/{custId}/subscriptions
+            Method: post
+        subscription:
+          Type: Api
+          Properties:
+            Path: /customers/{custId}/subscriptions/{subscriptionId}
+            Method: any
