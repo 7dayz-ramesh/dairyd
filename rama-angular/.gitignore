@@ -9,6 +9,9 @@
 /node_modules
 /backend/setup/node_modules
 
+# package-lok.json
+/package-lock.json
+
 # IDEs and editors
 /.idea
 .project
